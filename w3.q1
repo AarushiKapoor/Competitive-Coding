@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+#define ll long long 
+ll int hcf(ll int n1,ll int n2)
+{
+    if(n2!=0)
+        return hcf(n2,n1%n2);
+    else
+        return n1;
+}
+ll int lcm(ll int a,ll int b)
+{
+    return a*b/(hcf(a,b));
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        ll int a,b;
+        cin>>a>>b;
+        cout<<lcm(a,b)<<" "<<hcf(a,b);
+        cout<<endl;
+    }
+    return 0;
+}
