@@ -1,0 +1,22 @@
+int countNodesinLoop(struct Node *head)
+{
+    struct Node *end=head;
+    struct Node *temp=head;
+    int x=1;
+    while(end && temp && temp->next)
+    {
+        end=end->next;
+        temp=temp->next->next;
+        if(end==temp)
+        {
+            while(temp->next!=end)
+            {
+                x++;
+                temp=temp->next;
+            }
+            return x;
+        }
+    }
+    return 0;
+     // Code here
+}
