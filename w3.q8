@@ -1,0 +1,19 @@
+Node* reverseList(Node *head)
+{
+    Node *p,*q;
+    if(head==NULL)
+    {
+        return NULL;
+    }
+    p=head;
+    q=p->next;
+    if(q==NULL)
+    {
+        return head;
+    }
+    q=reverseList(q);
+    p->next->next=p;
+    p->next=NULL;
+    return q;
+  // Your code here
+}
