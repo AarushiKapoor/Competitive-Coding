@@ -1,0 +1,24 @@
+bool isPalindrome(Node *head)
+{
+    Node *p;
+    p=head;
+    stack<int> s;
+    while(p!=NULL)
+    {
+        s.push(p->data);
+        p=p->next;
+    }
+    while(head!=NULL)
+    {
+        int x=s.top();
+        s.pop();
+        if(head->data!=x)
+        {
+            return false;
+        }
+        head=head->next;
+    }
+    
+    return true;
+    //Your code here
+}
