@@ -1,24 +1,25 @@
-void remove_duplicate_elements(struct node* head)
+Node * removeDuplicates( Node *head) 
 {
-    struct node* current = head;
-
-    struct node* next_next;
-
-    if (current == NULL)
-        return;
-
-    while (current -> next != NULL)
+    Node *p=head;
+    Node *q,*dup;
+    while(p!=NULL && p->next!=NULL)
     {
-        /* Compare current node with its next */
-        if (current -> data == current -> next -> data)
+        q=p;
+        while(q->next!=NULL)
         {
-            next_next = current -> next -> next;
-            free(current -> next);
-            current -> next = next_next;
+            if(p->data==q->next->data)
+            {
+                dup=q->next;
+                q->next=q->next->next;
+                free(dup);
+            }
+            else
+            {
+                q=q->next;
+            }
         }
-        else
-        {
-            current = current -> next;
-        }
+        p=p->next;
     }
+    return head;
+ // your code goes here
 }
